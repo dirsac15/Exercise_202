@@ -28,18 +28,52 @@ public class SenderDlg extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        lbSender = new javax.swing.JLabel();
+        tfSender = new javax.swing.JTextField();
+        lbFrequenz = new javax.swing.JLabel();
+        tfFrequenz = new javax.swing.JTextField();
+        lbBand = new javax.swing.JLabel();
+        tfBand = new javax.swing.JTextField();
+        btOk = new javax.swing.JButton();
+        btCancel = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.GridLayout(4, 2, 2, 2));
+
+        lbSender.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbSender.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbSender.setText("Sender:");
+        getContentPane().add(lbSender);
+
+        tfSender.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tfSender.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        getContentPane().add(tfSender);
+
+        lbFrequenz.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbFrequenz.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbFrequenz.setText("Frequenz:");
+        getContentPane().add(lbFrequenz);
+
+        tfFrequenz.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tfFrequenz.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        getContentPane().add(tfFrequenz);
+
+        lbBand.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbBand.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbBand.setText("Band:");
+        getContentPane().add(lbBand);
+
+        tfBand.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tfBand.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        getContentPane().add(tfBand);
+
+        btOk.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btOk.setText("OK");
+        getContentPane().add(btOk);
+
+        btCancel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btCancel.setText("Cancel");
+        getContentPane().add(btCancel);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -87,5 +121,13 @@ public class SenderDlg extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btCancel;
+    private javax.swing.JButton btOk;
+    private javax.swing.JLabel lbBand;
+    private javax.swing.JLabel lbFrequenz;
+    private javax.swing.JLabel lbSender;
+    private javax.swing.JTextField tfBand;
+    private javax.swing.JTextField tfFrequenz;
+    private javax.swing.JTextField tfSender;
     // End of variables declaration//GEN-END:variables
 }
