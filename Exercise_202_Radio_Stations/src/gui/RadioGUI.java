@@ -7,6 +7,8 @@ package gui;
 
 import bl.SenderTableModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableColumnModel;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -21,7 +23,28 @@ public class RadioGUI extends javax.swing.JFrame {
     public RadioGUI() {
         initComponents();
         this.setLocationRelativeTo(this);
+        //tbRadio.setModel(sm);
+        initTable();
+        
+        
+    }
+    
+    public void initTable()
+    {
+        int[] colWidth = {200, 200, 200};
+        DefaultTableColumnModel dtcm = new DefaultTableColumnModel();
+        
+        for (int i = 0; i < colWidth.length; i++) 
+        {
+            TableColumn tc = new TableColumn(i, colWidth[i]);
+            tc.setResizable(false);
+            dtcm.addColumn(tc);
+
+        }
+       
         tbRadio.setModel(sm);
+        tbRadio.setColumnModel(dtcm);
+        tbRadio.setDefaultRenderer(Object.class, new SenderTableRenderer());
     }
 
     /**
@@ -40,7 +63,7 @@ public class RadioGUI extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tbRadio = new javax.swing.JTable();
 
-        miAdd.setText("jMenuItem1");
+        miAdd.setText("hinzufügen");
         miAdd.setActionCommand("hinzufügen");
         miAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,7 +72,7 @@ public class RadioGUI extends javax.swing.JFrame {
         });
         jPopupMenu1.add(miAdd);
 
-        miHide.setText("jMenuItem2");
+        miHide.setText("Band verstecken");
         miHide.setActionCommand("Band verstecken");
         miHide.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,7 +81,7 @@ public class RadioGUI extends javax.swing.JFrame {
         });
         jPopupMenu1.add(miHide);
 
-        miShow.setText("jMenuItem3");
+        miShow.setText("Band anzeigen");
         miShow.setActionCommand("Band anzeigen");
         miShow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
