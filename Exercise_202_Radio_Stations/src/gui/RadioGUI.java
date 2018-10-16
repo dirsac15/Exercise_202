@@ -6,6 +6,7 @@
 package gui;
 
 import bl.SenderTableModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -41,14 +42,29 @@ public class RadioGUI extends javax.swing.JFrame {
 
         miAdd.setText("jMenuItem1");
         miAdd.setActionCommand("hinzufügen");
+        miAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                onHinzufuegen(evt);
+            }
+        });
         jPopupMenu1.add(miAdd);
 
         miHide.setText("jMenuItem2");
         miHide.setActionCommand("Band verstecken");
+        miHide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                onVerstecken(evt);
+            }
+        });
         jPopupMenu1.add(miHide);
 
         miShow.setText("jMenuItem3");
         miShow.setActionCommand("Band anzeigen");
+        miShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                onBandAnzeigen(evt);
+            }
+        });
         jPopupMenu1.add(miShow);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,6 +89,58 @@ public class RadioGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void onHinzufuegen(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onHinzufuegen
+        try
+        {
+            SenderDlg sdlg = new SenderDlg(this, true);
+            sdlg.setVisible(true);
+            
+            if(sdlg.isOk())
+            {
+                sm.add(sdlg.getSender());
+            }
+        }
+        catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+    }//GEN-LAST:event_onHinzufuegen
+
+    private void onVerstecken(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onVerstecken
+        try
+        {
+            
+//            taSender.removeColumn(taSender.getColumnModel().getColumn(2));
+//            taSender.getModel().getValueAt(taSender.getSelectedRow(), 2);
+            
+//            TableColumnModel model = taSender.getColumnModel();
+//            TableColumn col = model.getColumn(2);          
+//            removed.add(col);
+//            model.removeColumn(col);
+            tbRadio.removeColumn(tbRadio.getColumnModel().getColumn(2));
+            
+            
+        }
+        catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+    }//GEN-LAST:event_onVerstecken
+
+    private void onBandAnzeigen(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onBandAnzeigen
+        try
+        {
+//            model.addColumn(col);
+            
+            tbRadio.addColumn(tbRadio.getColumn(2));
+  
+        }
+        catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+    }//GEN-LAST:event_onBandAnzeigen
 
     /**
      * @param args the command line arguments

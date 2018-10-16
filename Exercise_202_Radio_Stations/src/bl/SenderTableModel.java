@@ -25,17 +25,33 @@ public class SenderTableModel extends AbstractTableModel
 
     @Override
     public int getColumnCount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.    
+        return colNames.length;   
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Sender sender = list.get(rowIndex);
+        switch(columnIndex)
+        {
+            case 0: return sender.getSender();
+            case 1: return sender.getFrequenz();
+            case 2: return sender.getBand();
+            default: return "Error";
+        }
     }
 
     @Override
     public String getColumnName(int column) {
         return colNames[column];
+    }
+    
+    public void updateNumCols(int numCols) {
+        colNames = new String[numCols];
+        for (int i = 0; i < numCols; i++) {
+            colNames[i] = "Col " + i;
+        }
+
+        fireTableStructureChanged();
     }
     
     public void add(Sender s)

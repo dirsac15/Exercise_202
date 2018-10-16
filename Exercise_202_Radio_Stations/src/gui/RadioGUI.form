@@ -13,18 +13,27 @@
             <Property name="text" type="java.lang.String" value="jMenuItem1"/>
             <Property name="actionCommand" type="java.lang.String" value="hinzuf&#xfc;gen"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onHinzufuegen"/>
+          </Events>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="miHide">
           <Properties>
             <Property name="text" type="java.lang.String" value="jMenuItem2"/>
             <Property name="actionCommand" type="java.lang.String" value="Band verstecken"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onVerstecken"/>
+          </Events>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="miShow">
           <Properties>
             <Property name="text" type="java.lang.String" value="jMenuItem3"/>
             <Property name="actionCommand" type="java.lang.String" value="Band anzeigen"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onBandAnzeigen"/>
+          </Events>
         </MenuItem>
       </SubComponents>
     </Container>
