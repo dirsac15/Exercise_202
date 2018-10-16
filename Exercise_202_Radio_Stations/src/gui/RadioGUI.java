@@ -5,17 +5,22 @@
  */
 package gui;
 
+import bl.SenderTableModel;
+
 /**
  *
  * @author Sabrina
  */
 public class RadioGUI extends javax.swing.JFrame {
 
+    private SenderTableModel sm = new SenderTableModel();
     /**
      * Creates new form RadioGUI
      */
     public RadioGUI() {
         initComponents();
+        this.setLocationRelativeTo(this);
+        tbRadio.setModel(sm);
     }
 
     /**

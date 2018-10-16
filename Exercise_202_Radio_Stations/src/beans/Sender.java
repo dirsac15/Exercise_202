@@ -9,7 +9,7 @@ package beans;
  *
  * @author Sabrina
  */
-public class Sender 
+public class Sender implements Comparable<Sender>
 {
     private String sender;
     private double frequenz;
@@ -44,10 +44,19 @@ public class Sender
     public void setBand(String band) {
         this.band = band;
     }
+    
+    public int getColValue(int col){
+        return col;
+    }
 
     @Override
     public String toString() {
         return "Sender{" + "sender=" + sender + ", frequenz=" + frequenz + ", band=" + band + '}';
+    }
+
+    @Override
+    public int compareTo(Sender o) {
+        return (int)(this.getFrequenz() - o.getFrequenz());
     }
     
     

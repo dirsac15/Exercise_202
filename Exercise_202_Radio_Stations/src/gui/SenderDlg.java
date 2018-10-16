@@ -5,18 +5,29 @@
  */
 package gui;
 
+import beans.Sender;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Sabrina
  */
 public class SenderDlg extends javax.swing.JDialog {
 
+    private boolean ok;
+    private Sender sender;
     /**
      * Creates new form SenderDlg
      */
     public SenderDlg(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(this);
+        this.setSize(250, 150);
+        
+        tfSender.setText("Oe3");
+        tfFrequenz.setText("89.20");
+        tfBand.setText("FM");      
     }
 
     /**
@@ -69,15 +80,80 @@ public class SenderDlg extends javax.swing.JDialog {
 
         btOk.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btOk.setText("OK");
+        btOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                onOk(evt);
+            }
+        });
         getContentPane().add(btOk);
 
         btCancel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btCancel.setText("Cancel");
+        btCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                onCancel(evt);
+            }
+        });
         getContentPane().add(btCancel);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void onOk(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onOk
+        try
+        {
+            String sendername = tfSender.getText();
+            double frequenz = Double.parseDouble(tfFrequenz.getText());
+            String band = tfBand.getText();
+            
+            if(sendername.equals("") || band.equals(""))
+            {
+                JOptionPane.showMessageDialog(null, "Input all textfields!");
+                return;
+            }
+            else
+            {
+                if(frequenz > 0 &&  frequenz < 1000)
+                {
+                    sender = new Sender(sendername, frequenz, band);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Frequenzy must be between 1 and 999!");
+                    return;
+                }
+               
+            }
+            
+            ok = true;
+            dispose();
+        }
+        catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(null, "Error1");
+        }
+    }//GEN-LAST:event_onOk
+
+    private void onCancel(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onCancel
+        try
+        {
+            ok = false;
+            dispose();
+        }
+        catch(Exception ex)
+        {
+          JOptionPane.showMessageDialog(null, "Error");  
+        }
+    }//GEN-LAST:event_onCancel
+
+    public boolean isOk() {
+        return ok;
+    }
+
+    public Sender getSender() {
+        return sender;
+    }
+    
     /**
      * @param args the command line arguments
      */
